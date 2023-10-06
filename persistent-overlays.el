@@ -199,7 +199,7 @@ use when saving or merging overlays."
 	      (let ((prop (car props)) (oprops nil))
 		(when (overlay-get ovly prop)
 		  (setq oprops (overlay-properties ovly))
-		  (princ (format "(let ((tovly (make-overlay %d %d)) (tplist '%s)) (while tplist (let ((tp (car tplist)) (tpv (cadr tplist))) (overlay-put tovly tp tpv)) (setq tplist (cddr tplist))))\n" (overlay-start ovly) (overlay-end ovly) oprops) tbuf)))
+		  (princ (format "(let ((tovly (make-overlay %d %d)) (tplist '%S)) (while tplist (let ((tp (car tplist)) (tpv (cadr tplist))) (overlay-put tovly tp tpv)) (setq tplist (cddr tplist))))\n" (overlay-start ovly) (overlay-end ovly) oprops) tbuf)))
 	      (setq props (cdr props))))
 	  (setq ovlys (cdr ovlys)))
 	(set-buffer tbuf)
